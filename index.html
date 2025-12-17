@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Quiz</title>
+    <link rel="stylesheet" href="src/style/master.css">
+    <link rel="stylesheet" href="src/style/output.css">
+    <link rel="stylesheet" href="src/assets/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body class="w-full h-dvh relative Bg1">
+    <div id="stars" class="w-full h-full absolute top-0 left-0 overflow-hidden"></div>
+
+</body>
+<script>
+    // ------------------------stars--------------------------
+    let starContainer = document.getElementById('stars')
+
+    for (let i = 0; i < 500; i++) {
+        let star = document.createElement('div')
+        star.style.width = '1px'
+        star.style.height = '1px'
+        star.style.borderRadius = '50%'
+        star.style.opacity = '.5'
+        star.style.backgroundColor = 'white'
+        star.style.position = 'absolute'
+        star.style.top = Math.random() * 100 + 'vh'
+        star.style.left = Math.random() * 100 + '%'
+        starContainer.appendChild(star)
+    }
+</script>
+
+</html>

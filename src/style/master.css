@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* npx @tailwindcss/cli -i ./src/style/master.css -o ./src/style/output.css --watch */
+
+.Bg1 {
+    background: #020024;
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 80%, rgba(0, 136, 163, 1) 100%);
+}
