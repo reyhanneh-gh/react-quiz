@@ -11,42 +11,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap" rel="stylesheet">
 </head>
 
-<body class="w-full h-dvh relative Bg1 flex justify-center flex-wrap">
+<body class="w-full h-fit sm:h-dvh relative Bg1 flex justify-center flex-wrap">
     <div id="stars" class="w-full h-full absolute top-0 left-0 overflow-hidden animate-pulse"></div>
 
-    <header class="w-full h-fit pt-[50px] flex justify-center items-center myFont  gap-x-1">
+    <header class="w-full h-[10vh] pt-[50px] flex justify-center items-center myFont  gap-x-1">
         <figure class="size-[35px] overflow-hidden ml-2">
             <img src="src/assets/image/React-icon.svg.png" alt="">
         </figure>
-        <h1 class="text-white text-2xl font-extrabold">تست سوالات استخدامی</h1>
-        <h2 class="text-[#3edfff] text-2xl font-extrabold">ری‌اکت</h2>
+        <h1 class="text-white text-xl sm:text-2xl font-extrabold">تست سوالات استخدامی</h1>
+        <h2 class="text-[#3edfff] text-xl sm:text-2xl font-extrabold">ری‌اکت</h2>
     </header>
-    <main class="w-11/12 md:w-1/2 h-fit rounded-[5px] p-5 Bg2 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-[3px] bg-[#3edfff]"></div>
-        <div class="w-full h-fit flex items-center justify-between pb-5 border-b border-b-[#0088a345]">
-            <div class="w-fit h-fit flex">
-                <p class="text-[#3edfff] font-bold pl-2">امتیاز:</p>
-                <span class="text-white">100/</span>
-                <span class="text-[#3edfff]" id="score">0</span>
+    <main class="w-full h-[80vh] flex justify-center items-center">
+        <section class="w-11/12 md:w-1/2 h-fit rounded-[5px] p-5 Bg2 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-[3px] bg-[#3edfff]"></div>
+            <div class="w-full h-fit flex items-center justify-between pb-5 border-b border-b-[#0088a345]">
+                <div class="w-fit h-fit flex">
+                    <p class="text-[#3edfff] font-bold pl-2">امتیاز:</p>
+                    <span class="text-white">100/</span>
+                    <span class="text-[#3edfff]" id="score">0</span>
+                </div>
+                <div class="w-fit h-fit flex">
+                    <p class="text-[#3edfff] font-bold pl-2">سوال:</p>
+                    <span class="text-white">100/</span>
+                    <span class="text-white" id="Qnum">1</span>
+                </div>
             </div>
-            <div class="w-fit h-fit flex">
-                <p class="text-[#3edfff] font-bold pl-2">سوال:</p>
-                <span class="text-white">100/</span>
-                <span class="text-white" id="Qnum">1</span>
-            </div>
-        </div>
-        <!-- -------------------------Quiz-------------------------- -->
-        <div id="quiz" class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2">
-            <h2 id="question" class="w-full h-fit py-5 text-white"></h2>
-            <p id="a1" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#969696] px-2.5 py-5 rounded-[5px]"></p>
-            <p id="a2" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#3edfff] px-2.5 py-5 rounded-[5px]"></p>
-            <p id="a3" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#3edfff] px-2.5 py-5 rounded-[5px]"></p>
-            <p id="a4" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#3edfff] px-2.5 py-5 rounded-[5px]"></p>
-        </div>
-
-
-
+            <!-- -------------------------Quiz-------------------------- -->
+            <div id="quiz" class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2"></div>
+        </section>
     </main>
+    <footer class="w-full h-fit pt-5 pb-1 text-center justify-center text-white font-extralight text-[15px] relative">طراحی و
+        توسعه توسط ریحانه قلمبر | 1404
+        <!-- ----------------------------small screen---------------------------- -->
+        <ul
+            class="w-full h-full flex justify-center items-center sm:hidden gap-x-5 px-5 *:text-[18px] text-white *:hover:text-cyan-200 *:duration-300 pt-2">
+            <li><a class="bi bi-github" href="https://github.com/reyhanneh-gh"></a>
+            </li>
+            <li><a class="bi bi-instagram" href="https://www.instagram.com/reyhaneh.alt/"></a></li>
+            <li><a class="bi bi-linkedin" href="www.linkedin.com/in/reyhaneh-ghalambor-76a889368"></a>
+            </li>
+        </ul>
+        <!-- ----------------------------large screen---------------------------- -->
+        <ul
+            class="hidden absolute right-0 top-0 w-fit h-full sm:flex justify-center items-end gap-x-5 px-10 *:text-[20px] text-white *:hover:text-cyan-200 *:duration-300">
+            <li><a class="bi bi-github" href="https://github.com/reyhanneh-gh"></a>
+            </li>
+            <li><a class="bi bi-instagram" href="https://www.instagram.com/reyhaneh.alt/"></a></li>
+            <li><a class="bi bi-linkedin" href="www.linkedin.com/in/reyhaneh-ghalambor-76a889368"></a>
+            </li>
+        </ul>
+    </footer>
 </body>
 <script>
     // ------------------------stars--------------------------
@@ -64,7 +78,40 @@
         star.style.left = Math.random() * 100 + '%'
         starContainer.appendChild(star)
     }
-    
+    // ------------------------fetch api------------------------
+    let quiz = document.getElementById("quiz")
+    fetch("src/js/questions.json")
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(val => {
+                console.log(val);
+                let quizData = document.createElement('div')
+                if (val.id == 1) {
+                    quiz.innerHTML = `
+                <h2 id="question" class="w-full h-fit py-5 text-white font-extrabold myFont flex gap-x-1">
+                    <i class="bi bi-caret-left-fill text-[#3edfff]"></i>
+                    ${val.question}</h2>
+            <p id="a1"
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[0]}
+            </p>
+            <p id="a2"
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[1]}
+            </p>
+            <p id="a3"
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[2]}
+            </p>
+            <p id="a4"
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[3]}
+            </p>
+            <button
+                class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">ثبت</button>
+                `
+
+                }
+
+            })
+
+        })
 </script>
 
 </html>
