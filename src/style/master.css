@@ -4,5 +4,16 @@
 
 .Bg1 {
     background: #020024;
-    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 80%, rgba(0, 136, 163, 1) 100%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 87%, #0088a3 100%);
+}
+
+.Bg2 {
+    background-color: rgba(120, 120, 120, 0.132);
+    backdrop-filter: blur(10px);
+    border: 1px solid #0088a345;
+    box-shadow: 0 0 15px #0088a345;
+}
+
+.myFont {
+    font-family: "Baloo Bhaijaan 2", sans-serif;
 }

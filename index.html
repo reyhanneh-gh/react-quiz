@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,45 @@
     <link rel="stylesheet" href="src/style/master.css">
     <link rel="stylesheet" href="src/style/output.css">
     <link rel="stylesheet" href="src/assets/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap" rel="stylesheet">
 </head>
 
-<body class="w-full h-dvh relative Bg1">
-    <div id="stars" class="w-full h-full absolute top-0 left-0 overflow-hidden"></div>
+<body class="w-full h-dvh relative Bg1 flex justify-center flex-wrap">
+    <div id="stars" class="w-full h-full absolute top-0 left-0 overflow-hidden animate-pulse"></div>
 
+    <header class="w-full h-fit pt-[50px] flex justify-center items-center myFont  gap-x-1">
+        <figure class="size-[35px] overflow-hidden ml-2">
+            <img src="src/assets/image/React-icon.svg.png" alt="">
+        </figure>
+        <h1 class="text-white text-2xl font-extrabold">تست سوالات استخدامی</h1>
+        <h2 class="text-[#3edfff] text-2xl font-extrabold">ری‌اکت</h2>
+    </header>
+    <main class="w-11/12 md:w-1/2 h-fit rounded-[5px] p-5 Bg2 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-[3px] bg-[#3edfff]"></div>
+        <div class="w-full h-fit flex items-center justify-between pb-5 border-b border-b-[#0088a345]">
+            <div class="w-fit h-fit flex">
+                <p class="text-[#3edfff] font-bold pl-2">امتیاز:</p>
+                <span class="text-white">100/</span>
+                <span class="text-[#3edfff]" id="score">0</span>
+            </div>
+            <div class="w-fit h-fit flex">
+                <p class="text-[#3edfff] font-bold pl-2">سوال:</p>
+                <span class="text-white">100/</span>
+                <span class="text-white" id="Qnum">1</span>
+            </div>
+        </div>
+        <!-- -------------------------Quiz-------------------------- -->
+        <div id="quiz" class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2">
+            <h2 id="question" class="w-full h-fit py-5 text-white"></h2>
+            <p id="a1" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#969696] px-2.5 py-5 rounded-[5px]"></p>
+            <p id="a2" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#3edfff] px-2.5 py-5 rounded-[5px]"></p>
+            <p id="a3" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#3edfff] px-2.5 py-5 rounded-[5px]"></p>
+            <p id="a4" class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-[#3edfff] px-2.5 py-5 rounded-[5px]"></p>
+        </div>
+
+
+
+    </main>
 </body>
 <script>
     // ------------------------stars--------------------------
@@ -30,6 +64,7 @@
         star.style.left = Math.random() * 100 + '%'
         starContainer.appendChild(star)
     }
+    
 </script>
 
 </html>
