@@ -24,8 +24,30 @@
 
 
     <main class="w-full h-[80vh] flex justify-center items-center">
-        <section
+        <!-- -------------------------first page---------------------------- -->
+        <section id="firstPage"
             class="w-11/12 md:w-1/2 h-fit flex flex-wrap justify-center rounded-[5px] p-5 Bg2 relative overflow-hidden">
+            <div class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2 pb-2.5 myFont">
+                <h6 class="font-extrabold text-[#3edfff] w-full">خوش آمدید💫</h6><br><br>
+                <p class=" w-full myFont font-semibold text-white">
+                    این آزمون برای ارزیابی دانش و مهارت شما در React طراحی شده است.<br><br>
+                    سؤالات آن بر اساس مقاله‌ی «جامع‌ترین
+                    لیست
+                    سؤالات استخدامی React» در سایت <a href="https://trainingsitedesign.ir/"
+                        class="myFont font-extrabold text-[#3edfff] hover:underline hover:underline-offset-8">پرنیان</a> گردآوری شده‌اند و تلاش شده تا تمامی
+                    مفاهیم کلیدی و کاربردی این
+                    کتابخانه پوشش داده شوند.<br><br>
+                    با شرکت در این آزمون، می‌توانید میزان تسلط خود بر مباحث اصلی React را بسنجید و دید بهتری نسبت به سطح
+                    آمادگی‌تان برای مصاحبه‌های شغلی به دست آورید.
+                </p>
+            </div>
+            <button
+                class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">شروع
+                تست</button>
+        </section>
+        <!-- -------------------------Quiz section-------------------------- -->
+        <section id="quizPage"
+            class="w-11/12 md:w-1/2 h-fit hidden flex-wrap justify-center rounded-[5px] p-5 Bg2 relative overflow-hidden">
             <div id="Qprogress" class="absolute top-0 left-0 w-[1%] h-[3px] bg-[#3edfff]"></div>
             <div class="w-full h-fit flex items-center justify-between pb-5 border-b border-b-[#0088a345]">
                 <div class="w-fit h-fit flex">
@@ -39,7 +61,6 @@
                     <span class="text-white" id="Qnum">1</span>
                 </div>
             </div>
-            <!-- -------------------------Quiz-------------------------- -->
             <div id="quiz" class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2 pb-2.5"></div>
             <button id=btn
                 class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">سوال
@@ -71,108 +92,6 @@
         </ul>
     </footer>
 </body>
-<script>
-    // ------------------------stars--------------------------
-    let starContainer = document.getElementById('stars')
-
-    for (let i = 0; i < 500; i++) {
-        let star = document.createElement('div')
-        star.style.width = '1px'
-        star.style.height = '1px'
-        star.style.borderRadius = '50%'
-        star.style.opacity = '.5'
-        star.style.backgroundColor = 'white'
-        star.style.position = 'absolute'
-        star.style.top = Math.random() * 100 + 'vh'
-        star.style.left = Math.random() * 100 + '%'
-        starContainer.appendChild(star)
-    }
-    // ------------------------fetch api------------------------
-    let quiz = document.getElementById("quiz")
-    fetch("src/js/questions.json")
-        .then(response => response.json())
-        .then(data => {
-            let i = 0
-            data.forEach(val => {
-                console.log(val);
-            })
-            let quizHtml = function () {
-                quiz.innerHTML = `
-                <h2 id="question" class="w-full h-fit py-5 text-white font-extrabold myFont flex gap-x-1">
-                    <i class="bi bi-caret-left-fill text-[#3edfff]"></i>
-                    ${data[i].question}</h2>
-            <p id="a1"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[0]}
-            </p>
-            <p id="a2"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[1]}
-            </p>
-            <p id="a3"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[2]}
-            </p>
-            <p id="a4"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[3]}
-            </p>`
-                // ------------------------last Q btn------------------------
-                if (i == (data.length - 1)) {
-                    let btn = document.getElementById('btn')
-                    btn.innerText = "پایان تست"
-                }
-
-                // ------------------------bg after click------------------------
-                let clickAnswer = document.querySelectorAll("#quiz>p")
-                clickAnswer.forEach(val => {
-                    val.addEventListener('click', () => {
-                        clickAnswer.forEach(p => {
-                            p.style.backgroundColor = ''
-                            p.setAttribute("data-click", "off")
-                        })
-                        val.style.backgroundColor = '#3edfff5c'
-                        val.setAttribute("data-click", "on")
-                    })
-                })
-            }
-            quizHtml()
-
-            let btn = document.getElementById('btn')
-            let Qnum = document.getElementById("Qnum")
-            let Qprogress = document.getElementById("Qprogress")
-            let boxWidth = document.querySelector("main>section").clientWidth
-            let score = document.getElementById('score')
-            let Qflag = 1
-            let Sflag = 0
-
-            btn.addEventListener('click', () => {
-                // ------------------------check answer------------------------
-                let clickAnswer = document.querySelectorAll("#quiz>p")
-                for (let j = 0; j < 4; j++) {
-                    if (data[i].options[j] == data[i].answer) {
-                        clickAnswer[j].style.backgroundColor = '#49ff0245'
-                        // -----------------------score------------------------
-                        if (clickAnswer[j].getAttribute("data-click") == "on") {
-                            Sflag++
-                            score.innerText = Sflag
-                        }
-                    } else {
-                        if (clickAnswer[j].getAttribute("data-click") == "on") {
-                            clickAnswer[j].style.backgroundColor = '#ff000045'
-                        }
-                    }
-                }
-
-                // ---------------------------next Q---------------------------
-                setTimeout(() => {
-                    if (Qflag < data.length) {
-                        Qflag++
-                        Qnum.innerText = Qflag
-                        let QprogressWidth = (boxWidth / 100) * Qflag
-                        Qprogress.style.width = QprogressWidth + "px"
-                    }
-                    i++
-                    quizHtml()
-                }, 1000);
-            })
-        })
-</script>
+<script src="src/js/master.js"></script>
 
 </html>
