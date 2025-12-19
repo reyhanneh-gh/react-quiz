@@ -246,6 +246,9 @@
   .w-11\/12 {
     width: calc(11/12 * 100%);
   }
+  .w-\[1\%\] {
+    width: 1%;
+  }
   .w-fit {
     width: fit-content;
   }

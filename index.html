@@ -23,7 +23,7 @@
     </header>
     <main class="w-full h-[80vh] flex justify-center items-center">
         <section class="w-11/12 md:w-1/2 h-fit rounded-[5px] p-5 Bg2 relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-[3px] bg-[#3edfff]"></div>
+            <div id="Qprogress" class="absolute top-0 left-0 w-[1%] h-[3px] bg-[#3edfff]"></div>
             <div class="w-full h-fit flex items-center justify-between pb-5 border-b border-b-[#0088a345]">
                 <div class="w-fit h-fit flex">
                     <p class="text-[#3edfff] font-bold pl-2">امتیاز:</p>
@@ -107,7 +107,7 @@
             <button
                 class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">ثبت</button>
                 `
-                // ------------------------bg after click------------------------
+                    // ------------------------bg after click------------------------
                     let clickAnswer = document.querySelectorAll("#quiz>p")
                     clickAnswer.forEach(val => {
                         val.addEventListener('click', () => {
@@ -116,6 +116,18 @@
                             })
                             val.style.backgroundColor = '#3edfff5c'
                         })
+                    })
+                    // -----------------Q number after clicking button-----------------
+                    let btn = document.querySelector("#quiz>button")
+                    let Qnum = document.getElementById("Qnum")
+                    let Qprogress = document.getElementById("Qprogress")
+                    let boxWidth = document.querySelector("main>section").clientWidth
+                    let Qflag = 1
+                    btn.addEventListener("click", () => {
+                        Qflag++
+                        Qnum.innerText = Qflag
+                        let QprogressWidth = (boxWidth / 100) * Qflag
+                        Qprogress.style.width = QprogressWidth + "px"
                     })
                 }
             })
