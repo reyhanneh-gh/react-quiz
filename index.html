@@ -120,8 +120,10 @@
                     val.addEventListener('click', () => {
                         clickAnswer.forEach(p => {
                             p.style.backgroundColor = ''
+                            p.setAttribute("data-click", "off")
                         })
                         val.style.backgroundColor = '#3edfff5c'
+                        val.setAttribute("data-click", "on")
                     })
                 })
             }
@@ -131,14 +133,25 @@
             let Qnum = document.getElementById("Qnum")
             let Qprogress = document.getElementById("Qprogress")
             let boxWidth = document.querySelector("main>section").clientWidth
+            let score = document.getElementById('score')
             let Qflag = 1
+            let Sflag = 0
 
             btn.addEventListener('click', () => {
                 // ------------------------check answer------------------------
+                let clickAnswer = document.querySelectorAll("#quiz>p")
                 for (let j = 0; j < 4; j++) {
                     if (data[i].options[j] == data[i].answer) {
-                        let clickAnswer = document.querySelectorAll("#quiz>p")
-                        clickAnswer[j].style.backgroundColor = '#66ac5e'
+                        clickAnswer[j].style.backgroundColor = '#49ff0245'
+                        // -----------------------score------------------------
+                        if (clickAnswer[j].getAttribute("data-click") == "on") {
+                            Sflag++
+                            score.innerText = Sflag
+                        }
+                    } else {
+                        if (clickAnswer[j].getAttribute("data-click") == "on") {
+                            clickAnswer[j].style.backgroundColor = '#ff000045'
+                        }
                     }
                 }
 
