@@ -46,3 +46,6 @@ This project was created to help developers **prepare for React interviews** by 
 **Source of Questions**: [Parnian School of Front-End](https://trainingsitedesign.ir/)  
 
 ---
+<img width="1920" height="875" alt="Screenshot (50)" src="https://github.com/user-attachments/assets/748a46db-d6ce-4d9a-a9ae-7976c78f2fe0" />
+<img width="1920" height="868" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/a285ffa7-1858-46f3-8737-50f8caf7c98c" />
+
