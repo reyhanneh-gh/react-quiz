@@ -31,7 +31,7 @@
                 <div class="w-fit h-fit flex">
                     <p class="text-[#3edfff] font-bold pl-2">امتیاز:</p>
                     <span class="text-white">100/</span>
-                    <span class="text-[#3edfff]" id="score">0</span>
+                    <span class="text-[#3edfff] font-extrabold" id="score">0</span>
                 </div>
                 <div class="w-fit h-fit flex">
                     <p class="text-[#3edfff] font-bold pl-2">سوال:</p>
@@ -42,7 +42,8 @@
             <!-- -------------------------Quiz-------------------------- -->
             <div id="quiz" class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2 pb-2.5"></div>
             <button id=btn
-                class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">ثبت</button>
+                class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">سوال
+                بعد</button>
         </section>
     </main>
 
@@ -112,7 +113,11 @@
             <p id="a4"
                 class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[3]}
             </p>`
-
+                // ------------------------last Q btn------------------------
+                if (i == (data.length - 1)) {
+                    let btn = document.getElementById('btn')
+                    btn.innerText = "پایان تست"
+                }
 
                 // ------------------------bg after click------------------------
                 let clickAnswer = document.querySelectorAll("#quiz>p")
