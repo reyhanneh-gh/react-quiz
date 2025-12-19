@@ -126,7 +126,7 @@
                 })
             }
             quizHtml()
-            // -----------------Q number after clicking button-----------------
+
             let btn = document.getElementById('btn')
             let Qnum = document.getElementById("Qnum")
             let Qprogress = document.getElementById("Qprogress")
@@ -134,13 +134,25 @@
             let Qflag = 1
 
             btn.addEventListener('click', () => {
-                Qflag++
-                Qnum.innerText = Qflag
-                let QprogressWidth = (boxWidth / 100) * Qflag
-                Qprogress.style.width = QprogressWidth + "px"
+                // ------------------------check answer------------------------
+                for (let j = 0; j < 4; j++) {
+                    if (data[i].options[j] == data[i].answer) {
+                        let clickAnswer = document.querySelectorAll("#quiz>p")
+                        clickAnswer[j].style.backgroundColor = '#66ac5e'
+                    }
+                }
+
                 // ---------------------------next Q---------------------------
-                i++
-                quizHtml()
+                setTimeout(() => {
+                    if (Qflag < data.length) {
+                        Qflag++
+                        Qnum.innerText = Qflag
+                        let QprogressWidth = (boxWidth / 100) * Qflag
+                        Qprogress.style.width = QprogressWidth + "px"
+                    }
+                    i++
+                    quizHtml()
+                }, 1000);
             })
         })
 </script>
