@@ -1,10 +1,10 @@
 # 📝 React Interview Questions Test – Practice Project ⚛️💡🎯  
-A fully responsive and interactive quiz application built with **Tailwind CSS** and **Pure JavaScript**. This project presents a curated set of **100 React interview questions** fetched dynamically from a local JSON file. The questions are sourced from [Training Site Design](https://trainingsitedesign.ir/) and cover a wide range of React concepts — from fundamentals like **props and state** to advanced topics such as **React 19 features, Server Components, and hooks**.  
+A fully responsive and interactive quiz application built with **Tailwind CSS** and **Pure JavaScript**. This project presents a curated set of **100 React interview questions** fetched dynamically from a local JSON file. The questions are sourced from [Parnian School of Front-End](https://trainingsitedesign.ir/) and cover a wide range of React concepts — from fundamentals like **props and state** to advanced topics such as **React 19 features, Server Components, and hooks**.  
 
 ---
 
 ## 🔗 Live Demo  
-[View React Test](https://your-username.github.io/react-interview-test/) ⚡  
+[View React Test](https://reyhanneh-gh.github.io/react-quiz/) 🪄  
 
 ---
 
@@ -16,6 +16,9 @@ A fully responsive and interactive quiz application built with **Tailwind CSS** 
 - 🎨 **Tailwind Styling:** Clean, modern, and responsive design powered by Tailwind CSS  
 - 📱 **Fully Responsive:** Optimized for desktop, tablet, and mobile screens  
 - ⚛️ **React-Focused Content:** Covers hooks, components, Virtual DOM, Server Components, and more  
+- 🔢 **Question Counter:** Displays current progress like `3/100` so users know their position in the test  
+- 📈 **Progress Bar:** Visual indicator that fills as you move through the questions  
+- 🏆 **Score Tracking:** Keeps track of correct answers, e.g. `20/100`, so users can measure performance  
 
 ---
 
@@ -24,7 +27,8 @@ This project was created to help developers **prepare for React interviews** by 
 - Fetching and rendering JSON data  
 - Managing quiz state with pure JavaScript  
 - Styling with Tailwind CSS for a modern UI  
-- Ensuring responsiveness across devices    
+- Tracking progress and scores interactively  
+- Ensuring responsiveness across devices   
 
 ---
 
@@ -38,9 +42,7 @@ This project was created to help developers **prepare for React interviews** by 
 
 ### 🧑‍🎨 Credits  
 **Developed by**: Reyhaneh Ghalambor  
-**Date**: 20 December 2025
-**Mentor**: Parsa Ghorbanian
-**Source of Questions**: [Training Site Design](https://trainingsitedesign.ir/)  
+**Date**: 20 December 2025  
+**Source of Questions**: [Parnian School of Front-End](https://trainingsitedesign.ir/)  
 
 ---
-  
