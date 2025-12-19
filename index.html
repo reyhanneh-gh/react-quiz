@@ -21,8 +21,11 @@
         <h1 class="text-white text-xl sm:text-2xl font-extrabold">تست سوالات استخدامی</h1>
         <h2 class="text-[#3edfff] text-xl sm:text-2xl font-extrabold">ری‌اکت</h2>
     </header>
+
+
     <main class="w-full h-[80vh] flex justify-center items-center">
-        <section class="w-11/12 md:w-1/2 h-fit rounded-[5px] p-5 Bg2 relative overflow-hidden">
+        <section
+            class="w-11/12 md:w-1/2 h-fit flex flex-wrap justify-center rounded-[5px] p-5 Bg2 relative overflow-hidden">
             <div id="Qprogress" class="absolute top-0 left-0 w-[1%] h-[3px] bg-[#3edfff]"></div>
             <div class="w-full h-fit flex items-center justify-between pb-5 border-b border-b-[#0088a345]">
                 <div class="w-fit h-fit flex">
@@ -37,9 +40,13 @@
                 </div>
             </div>
             <!-- -------------------------Quiz-------------------------- -->
-            <div id="quiz" class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2"></div>
+            <div id="quiz" class="w-full h-fit flex justify-center items-center flex-wrap gap-y-2 pb-2.5"></div>
+            <button id=btn
+                class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">ثبت</button>
         </section>
     </main>
+
+
     <footer class="w-full h-fit pt-5 pb-1 text-center justify-center text-white font-extralight text-[15px] relative">
         طراحی و
         توسعه توسط ریحانه قلمبر | 1404
@@ -84,52 +91,56 @@
     fetch("src/js/questions.json")
         .then(response => response.json())
         .then(data => {
+            let i = 0
             data.forEach(val => {
                 console.log(val);
-                let quizData = document.createElement('div')
-                if (val.id == 1) {
-                    quiz.innerHTML = `
+            })
+            let quizHtml = function () {
+                quiz.innerHTML = `
                 <h2 id="question" class="w-full h-fit py-5 text-white font-extrabold myFont flex gap-x-1">
                     <i class="bi bi-caret-left-fill text-[#3edfff]"></i>
-                    ${val.question}</h2>
+                    ${data[i].question}</h2>
             <p id="a1"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[0]}
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[0]}
             </p>
             <p id="a2"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[1]}
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[1]}
             </p>
             <p id="a3"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[2]}
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[2]}
             </p>
             <p id="a4"
-                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${val.options[3]}
-            </p>
-            <button
-                class="w-fit h-fit px-10 py-2 rounded-full mt-2.5 bg-cyan-500 hover:bg-cyan-600 text-white font-extrabold hover:scale-[.95] duration-300 myFont cursor-pointer">ثبت</button>
-                `
-                    // ------------------------bg after click------------------------
-                    let clickAnswer = document.querySelectorAll("#quiz>p")
-                    clickAnswer.forEach(val => {
-                        val.addEventListener('click', () => {
-                            clickAnswer.forEach(p => {
-                                p.style.backgroundColor = ''
-                            })
-                            val.style.backgroundColor = '#3edfff5c'
+                class="w-full h-fit cursor-pointer hover:scale-[.99] duration-200 border border-[#0088a363] text-white px-2.5 py-2.5 rounded-[5px]">${data[i].options[3]}
+            </p>`
+
+
+                // ------------------------bg after click------------------------
+                let clickAnswer = document.querySelectorAll("#quiz>p")
+                clickAnswer.forEach(val => {
+                    val.addEventListener('click', () => {
+                        clickAnswer.forEach(p => {
+                            p.style.backgroundColor = ''
                         })
+                        val.style.backgroundColor = '#3edfff5c'
                     })
-                    // -----------------Q number after clicking button-----------------
-                    let btn = document.querySelector("#quiz>button")
-                    let Qnum = document.getElementById("Qnum")
-                    let Qprogress = document.getElementById("Qprogress")
-                    let boxWidth = document.querySelector("main>section").clientWidth
-                    let Qflag = 1
-                    btn.addEventListener("click", () => {
-                        Qflag++
-                        Qnum.innerText = Qflag
-                        let QprogressWidth = (boxWidth / 100) * Qflag
-                        Qprogress.style.width = QprogressWidth + "px"
-                    })
-                }
+                })
+            }
+            quizHtml()
+            // -----------------Q number after clicking button-----------------
+            let btn = document.getElementById('btn')
+            let Qnum = document.getElementById("Qnum")
+            let Qprogress = document.getElementById("Qprogress")
+            let boxWidth = document.querySelector("main>section").clientWidth
+            let Qflag = 1
+
+            btn.addEventListener('click', () => {
+                Qflag++
+                Qnum.innerText = Qflag
+                let QprogressWidth = (boxWidth / 100) * Qflag
+                Qprogress.style.width = QprogressWidth + "px"
+                // ---------------------------next Q---------------------------
+                i++
+                quizHtml()
             })
         })
 </script>
