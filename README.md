@@ -1,4 +1,4 @@
-# 📝 React Interview Questions Test – Practice Project ⚛️💡🎯  
+# 📝 React Interview Questions Test ⚛️💡  
 A fully responsive and interactive quiz application built with **Tailwind CSS** and **Pure JavaScript**. This project presents a curated set of **100 React interview questions** fetched dynamically from a local JSON file. The questions are sourced from [Parnian School of Front-End](https://trainingsitedesign.ir/) and cover a wide range of React concepts — from fundamentals like **props and state** to advanced topics such as **React 19 features, Server Components, and hooks**.  
 
 ---
