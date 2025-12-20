@@ -41,13 +41,10 @@ This project was created to help developers **prepare for React interviews** by 
 ---
 
 ### 🧑‍🎨 Credits  
-**Developed by**: Reyhaneh Ghalambor  
-
-**Date**: 20 December 2025
-
-**Mentor**: Parsa Ghorbanian
-
-**Source of Questions**: [Parnian School of Front-End](https://trainingsitedesign.ir/)  
+- **Developed by**: Reyhaneh Ghalambor 
+- **Date**: 20 December 2025
+- **Mentor**: Parsa Ghorbanian
+- **Source of Questions**: [Parnian School of Front-End](https://trainingsitedesign.ir/)  
 
 ---
 <img width="1920" height="875" alt="Screenshot (50)" src="https://github.com/user-attachments/assets/748a46db-d6ce-4d9a-a9ae-7976c78f2fe0" />
